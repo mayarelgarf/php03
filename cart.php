@@ -47,9 +47,12 @@ require_once('./layouts/header.php');
                     value="<?= $cart_item['quantity'] ?>" />
                   <div class="input-group-btn">
                     
-                    <button type="button" class="incBtn btn btn-sm btn-primary btn-plus">
+                    
+                    <a class="incBtn btn btn-sm btn-primary btn-plus" type="button"
+                      href="addproduct.php?id=<?= $cart_item['product']['id'] ?>&process=addProductToCart">
                       <i class="fa fa-plus"></i>
-                    </button>
+        </a>
+                    
                   </div>
                 </div>
               </td>
@@ -57,9 +60,11 @@ require_once('./layouts/header.php');
                 <?= $cart_item['quantity'] * $cart_item['product']['price'] ?>
               </td>
               <td class="align-middle">
-                <button class="btn btn-sm btn-danger" type="button">
+                
+                <a class="btn btn-sm btn-danger" type="button"
+                      href="remove.php?id=<?= $cart_item['product']['id'] ?>&process=removeFromCart">
                   <i class="fa fa-times"></i>
-                </button>
+        </a>
               </td>
             </tr>
 

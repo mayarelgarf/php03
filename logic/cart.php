@@ -69,3 +69,17 @@ function total()
 
     return "$cart_total $";
 }
+
+function removeFromCart($cart_item,$i){
+    if (session_status() === PHP_SESSION_NONE)
+    session_start();
+
+$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+for ($i = 0; $i < count($cart); $i++) {
+    if ($cart[$i]['product']['id'] === $cart_item['id']) {
+        array_splice($cart, $i, 1);
+    }
+}
+$_SESSION['cart'] = $cart;
+
+}
